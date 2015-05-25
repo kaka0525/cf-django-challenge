@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1> Hi... My name is (detail page)</h1>
+
+<form method="POST" action="/contact/create/">
+{% csrf_token %}
+{{ user_list }}
+<input type= "submit" value="Finish" class="btn" />
+<input type= "submit" value="Edit" class="btn" />
+</form>
+
+
+{% endblock %}
+
+

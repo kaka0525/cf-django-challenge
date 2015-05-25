@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1> Hello, my name is ...!</h1>
+
+<h3> Current Users:</h3>
+<div>
+<ul>
+{% for user in user_list %}
+<li><a href="{% url "edit" user.pk %}">{{user}}</a></li>
+{% endfor %}
+</ul>
+</div>
+
+<h3>Create a new user</h3>
+<form method="post" action="/contact/create/">
+    {% csrf_token %}
+    <div>
+        <label for="title">Title</label>
+        <input name="title" />
+    </div>
+    <div>
+        <label for="first_name">First Name</label>
+        <input name="first_name" />
+    </div>
+    <div>
+        <label for="last_name">Last Name</label>
+        <input name="last_name" />
+    </div>
+    <div>
+        <label for="email">E-mail</label>
+        <input name="email" />
+    </div>
+    <div>
+        <label for="content">Content</label>
+        <input name="content" />
+    </div>
+    <div>
+        <label for="location">Location</label>
+        <input name="location" />
+    </div>
+    <p> <strong><em>Edit or delete user info by clicking user names <em><strong> </p>
+    <div>
+        <input type= "submit" value="Finish" class="btn" />
+    </div>
+
+</form>
+
+
+{% endblock %}
+
+

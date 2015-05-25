@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1> Hello, my name is ...!</h1>
+
+<div>
+<ul>
+<!-- {% for user in user_list %}
+<li><a href="{% url "edit" user.pk %}">{{user}}</a></li>
+{% endfor %} -->
+</ul>
+</div>
+
+<h3>Edit Or Delete the User</h3>
+<form method="post" action="{% url 'save_edit' user.pk %}">
+    {% csrf_token %}
+    <div>
+        <label for="title">Title</label>
+        <input name="title" value="{{ user.title }}" />
+    </div>
+    <div>
+        <label for="first_name">First Name</label>
+        <input name="first_name" value="{{ user.first_name }}" />
+    </div>
+    <div>
+        <label for="last_name">Last Name</label>
+        <input name="last_name" value="{{ user.last_name }}" />
+    </div>
+    <div>
+        <label for="email">E-mail</label>
+        <input name="email" value="{{ user.email }}" />
+    </div>
+    <div>
+        <label for="content">Content</label>
+        <input name="content" value="{{ user.content }}" />
+    </div>
+    <div>
+        <label for="location">Location</label>
+        <input name="location" value="{{ user.location }}" />
+    </div>
+    <div>
+        <input type="submit" name="edit" value="Finish" class="btn" />
+        <input type="submit" name="delete" value="Delete User" class="btn" />
+    </div>
+
+</form>
+
+
+{% endblock %}
+
+

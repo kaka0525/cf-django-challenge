@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1> Hello, my name is .(home page)..!</h1>
+
+<form method="POST" action=""> {% csrf_token %}
+{{ user_list }}
+<input type= "submit" value="Finish" class="btn" />
+<input type= "submit" value="Edit" class="btn" />
+</form>
+
+
+{% endblock %}
+
+
